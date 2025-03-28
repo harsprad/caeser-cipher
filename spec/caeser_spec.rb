@@ -48,6 +48,23 @@ describe 'Caeser cipher methods' do
     let(:alpha_h){ 'h'.upto('z').to_a.concat('a'.upto('g').to_a) }
     let(:alpha_y){ ['y', 'z'].concat('a'.upto('x').to_a) }
 
+    it 'create cipher with positive shift' do
+      shift = 7
+      cipher_key = create_cipher(shift)
+      expect(cipher_key.values).to eq(alpha_h)
+    end
+
+    it 'create cipher with negative shift' do
+      shift = -2
+      cipher_key = create_cipher(shift)
+      expect(cipher_key.values).to eq(alpha_y)
+    end
+
+    it 'create cipher with very large positive shift' do
+      shift = 52
+      cipher_key = create_cipher(shift)
+      expect(cipher_key.values).to eq(alphabet)
+    end
 
   end
 end

@@ -15,7 +15,7 @@ def single_translate(letter, cipher_key)
 end
 
 def create_cipher(shift_factor)
-  shift_factor %= 25
+  shift_factor %= 26
   alphabet = 'a'.upto('z').to_a
   shifted_alphabet = if shift_factor.zero?
                        alphabet
